@@ -1,0 +1,62 @@
+//MyCenter
+@import url("common.less");
+
+@line-color:#2F333D;
+@font-color:#7A7E88;
+
+.my_header{
+  text-align: center;
+  .avatar{
+
+  }
+  .name{
+    padding:30px 0px;
+    font-size: 40px;
+    color: #fff;
+  }
+}
+
+
+
+.my-list-body{
+  position: relative;
+  border-top: 5px solid @line-color;
+}
+.my-list-item{
+  min-height: 88px;
+  border-bottom: 5px solid @line-color;
+}
+.my-list-line{
+  .flex;
+  .flex_item;
+  .align_item;
+  position: relative;
+  //-ms-flex-item-align: stretch;
+  //align-self: stretch;
+  min-height: 88px;
+  overflow: hidden;
+  padding:0 60px;
+}
+.my-list-content{
+  .flex;
+  .flex_item;
+  .align_item;
+  color: @font-color;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 20px 0;
+}
+.my-list-icon{
+  margin-right: 30px;
+  font-size: 50px;
+  color: @font-color;
+}
+
+
+
+
+
+
+

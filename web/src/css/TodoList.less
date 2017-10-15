@@ -1,0 +1,204 @@
+//TodoList
+@import url("common.less");
+
+#TodoList{
+  padding: 40px;
+  .calender_wrap{
+    .flex;
+  }
+  .item_right{
+    margin: 0 0 0 20px;
+  }
+  .alender_list{
+    .flex;
+  }
+  .date{
+    color: #fff;
+    font-size: 100px;
+  }
+  .week, .year{
+    color: #f74a4a;
+  }
+  .mainlist_wrap{
+    margin: 20px 0 0;
+    .head{
+      text-align: center;
+      color: #fff;
+      background: #f74a4a;
+      height: 80px;
+      line-height: 80px;
+      font-size: 40px;
+    }
+    .mainlist{
+      background: #ffffff;
+      padding: 20px;
+    }
+    li{
+      .flex;
+      .justify-content;
+      align-items:baseline;
+    }
+    .task_type{
+      .flex(column);
+      .flex_item(1);
+      align-items:center;
+      height: 130px;
+      margin: 5px;
+    }
+    .type_circle{
+      width: 30px;
+      height: 30px;
+      background: #888;
+      -webkit-border-radius: 15px;
+      -moz-border-radius: 15px;
+      border-radius: 15px;
+    }
+    .adorn_line{
+      width: 4px;
+      background: #999;
+      margin: 10px 0 0;
+      .flex_item(1);
+    }
+    .description{
+      //width:75%;
+      padding:0 0 0 20px;
+      .flex_item(12);
+    }
+    .state{
+      .flex_item(2);
+      font-size: 32px;
+    }
+    .title{
+      color: #333333;
+    }
+    .desc{
+      //text-align: justify;
+      margin:20px 0 0;
+      font-size: 32px;
+      color: #999999;
+      .line_clamp(1);
+    }
+  }
+  .addbtn{
+    width:100px;
+    height: 100px;
+    line-height: 100px;
+    background: #f64e45;
+    font-size: 100px;
+    color: #fff;
+    text-align: center;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+  }
+
+
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+    height: 350px;
+  }
+
+  .App-header {
+    background-color: #222;
+    height: 350px;
+    color: white;
+    text-align: center;
+  }
+
+  @keyframes App-logo-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .indexli{
+    color: #f64e45;
+  }
+}
+
+
+.taskwrap{
+  .flex;
+  .justify-content(center);
+  background: rgba(0,0,0,.6);
+  align-item:center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.close_task{
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+.titletxt{
+  font-size: 40px;
+  line-height: 50px;
+  text-align: center;
+}
+.taskarea{
+  background: #ffffff;
+  padding: 50px;
+  margin: 200px;
+  position: relative;
+}
+.task_content{
+  margin:50px 0 0 0;
+}
+.form_item{
+  .flex;
+  align-items: baseline;
+  i{
+    margin-right: 20px;
+  }
+}
+.timechoose{
+  .flex;
+  margin-bottom: 30px;
+}
+.tasktitle{
+  margin-bottom: 30px;
+}
+.taskdes{
+  margin-bottom: 30px;
+}
+.submitbtn{
+  text-align: center;
+  i{
+    font-size: 120px;
+    color: #f64e45;
+    text-align: center;
+    line-height: 120px;
+  }
+}
+.typelist{
+  padding: 20px 0 20px 70px;
+  span{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin: 0 40px 0 0;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+  }
+}
+#editTitle{
+  border-bottom:2px solid #cccccc;
+  height: 60px;
+}
+
+
+.date-picker-list .am-list-item .am-list-line .am-list-extra {
+  flex-basis: initial;
+}
+.am-list-body{
+  border:none;
+  background: none;
+}
+.am-list-item{
+  //padding: 0;
+}
