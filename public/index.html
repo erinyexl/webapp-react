@@ -8,7 +8,7 @@
     <title>express index</title>
 </head>
 <body>
-<h1>asdf</h1>
+<h1>node test</h1>
 
 <script>
     // fetch('/users/addUser?uid=4&name=helloMySQL').then(function(response) {
@@ -16,6 +16,35 @@
     // }).then(function(json) {
     //     console.log(json);
     // });
+
+//    fetch('/index').then(function(response){
+//        return response.json();
+//    }).then(function(json){
+//        console.log(json);
+//    });
+
+//    fetch('/users/addNewList',{
+//        method:'POST',
+//        headers: {
+//            'Accept': 'application/json',
+//            'Content-Type': 'application/json'
+//        },
+//        body:JSON.stringify({
+//            type:3,
+//            state:'一般',
+//            title:'express fetch add new list',
+//            des:'des',
+//            created:'2018-10-03'
+//        })
+//    }).then(function(response){
+//        return response.json();
+//    }).then(function(json){
+//        console.log(json);
+//    });
+
+    fetch('/users/todoType')
+        .then(res => res.json())
+        .then(json => console.log(json));
 </script>
 </body>
 </html>

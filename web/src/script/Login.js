@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory';
 import '../css/Login.less';
 import '../css/animate-custom.css';
-import '../css/style3.css';
+import '../css/style2.css';
 
 const customHistory = createBrowserHistory();
 
@@ -14,28 +14,29 @@ class Login extends Component{
     }
     loginHandle(ev){
         ev.preventDefault();
-        let username=this.refs.userNameValue.value;
-        let password=this.refs.passwordValue.value;
-
-        fetch('/users/register',{
-            method:'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body:JSON.stringify({
-                username:username,
-                password:password
-            })
-        }).then(function(response){
-            return response.json();
-        }).then(function(json){
-            console.log(json);
-        });
-
-        return;
-        customHistory.push("/app");
-        customHistory.go();
+        // let username=this.refs.loginUserNameValue.value;
+        // let password=this.refs.loginPasswordValue.value;
+        //
+        // fetch('/users/login',{
+        //     method:'POST',
+        //     headers: {
+        //         'Accept': 'application/json',
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body:JSON.stringify({
+        //         username:username,
+        //         password:password
+        //     })
+        // }).then(function(response){
+        //     return response.json();
+        // }).then(function(json){
+        //     if(json.code==200){
+                customHistory.push("/app");
+                customHistory.go();
+        //     }else{
+        //         console.log('err');
+        //     }
+        // });
     }
     render(){
         return(
@@ -45,16 +46,16 @@ class Login extends Component{
                 <div className="loginForm" id="wrapper">
                     <div id="login" className="animate">
                         <div className="login_wrap">
-                            <div className="login_title"><strong>Log in</strong> | Martial art supplies</div>
+                            <div className="login_title"><strong>LOG IN</strong> | Martial art supplies</div>
 
                             <div className="login_item_area">
                                 <div className="login_item">
                                     <i className="iconfont login_item_icon">&#xe70b;</i>
-                                    <input type="text" ref="userNameValue" placeholder="用户名" className="input_username" />
+                                    <input type="text" ref="loginUserNameValue" placeholder="用户名" className="input_username" />
                                 </div>
                                 <div className="login_item">
                                     <i className="iconfont login_item_icon">&#xe82b;</i>
-                                    <input type="password" ref="passwordValue" placeholder="密码" className="input_password" />
+                                    <input type="password" ref="loginPasswordValue" placeholder="密码" className="input_password" />
                                 </div>
                             </div>
 
@@ -70,8 +71,6 @@ class Login extends Component{
                             <div className="login_sign">
                                 <i className="iconfont login_sign_icon">&#xe605;</i>
                             </div>
-
-                            <div className="or_sign">or</div>
                         </div>
                         <div className="sign_up">
                             <span>还没有账号？</span>
@@ -80,28 +79,24 @@ class Login extends Component{
                     </div>
                     <div id="register" className="animate">
                         <div className="login_wrap">
-                            <div className="login_title"><strong>Sign up</strong> | Martial art supplies</div>
+                            <div className="login_title"><strong>SIGN UP</strong> | Martial art supplies</div>
 
                             <div className="login_item_area">
                                 <div className="login_item">
                                     <i className="iconfont login_item_icon">&#xe70b;</i>
-                                    <input type="text" ref="userNameValue" placeholder="用户名" className="input_username" />
+                                    <input type="text" ref="regUserNameValue" placeholder="用户名" className="input_username" />
                                 </div>
                                 <div className="login_item">
                                     <i className="iconfont login_item_icon">&#xe82b;</i>
-                                    <input type="password" ref="passwordValue" placeholder="密码" className="input_password" />
+                                    <input type="password" ref="regPasswordValue" placeholder="密码" className="input_password" />
+                                </div>
+                                <div className="login_item">
+                                    <i className="iconfont login_item_icon">&#xe82b;</i>
+                                    <input type="password" ref="regPasswordValueAgain" placeholder="再次输入密码" className="input_password" />
                                 </div>
                             </div>
 
-                            <div className="login_keep">
-                                <input type="checkbox" id="checkbox" hidden />
-                                <label htmlFor="checkbox" />
-                                <span>记住密码</span>
-                            </div>
-
-                            <Link to='/app' className="login_submit" onClick={this.loginHandle}>登 录</Link>
-                            <a className="txtcolor" href="">忘记密码?</a>
-
+                            <Link to='/app' className="login_submit" onClick={this.loginHandle}>注 册</Link>
                             <div className="login_sign">
                                 <i className="iconfont login_sign_icon">&#xe605;</i>
                             </div>

@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import '../css/MyCenter.less';
 
 class MyCenter extends Component{
+    componentWillMount(){
+
+    }
     render(){
         return(
             <div id="myCenter">

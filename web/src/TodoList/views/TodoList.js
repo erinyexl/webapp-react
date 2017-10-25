@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
-import TestWrapper from './DatePicker';
 import { connect } from 'react-redux';
-import { showToast } from './Toast';
-import '../css/TodoList.less';
+import TestWrapper from '../../script/DatePicker';
+import { showToast } from '../../Toast';
+import '../../css/TodoList.less';
+
+import {fetchPosts, showTaskAction, hideTaskAction, submitNewAction} from "../actions";
 
 // UI组件
 class Todo extends Component {
+    componentDidMount(){
+        const { fetchTodoListHandle } = this.props;
+        fetchTodoListHandle();
+    }
     render() {
         return (
             <div id="TodoList">
@@ -16,20 +22,6 @@ class Todo extends Component {
         );
     }
 }
-
-// Action
-const showTaskAction={
-    type:"SHOW_TASK"
-};
-const hideTaskAction={
-    type:"HIDE_TASK"
-};
-const submitNewAction={
-    type:"ADD_NEW_TASK",
-    newList:[]
-};
-
-
 
 let mapStateToProps=(state)=>{
     return{
@@ -42,6 +34,7 @@ let mapStateToProps=(state)=>{
 
 let mapDispatchToProps=(dispatch)=>{
     return{
+        fetchTodoListHandle:()=>dispatch(fetchPosts('/users/todolist')),
         showTaskHandle:()=>dispatch(showTaskAction),
         submitNewHandle:(data)=>{
             submitNewAction.newList=[];
@@ -187,7 +180,6 @@ class Task extends Component{
         )
     }
 }
-
 
 export default TodoList;
 

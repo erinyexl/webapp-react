@@ -1,135 +1,54 @@
 import React, { Component } from 'react';
-import { TabBar, Icon } from 'antd-mobile';
-import Weibo from './Weibo';
-import TodoList from './TodoList';
+import { Link } from 'react-router-dom';
+import { TabBar } from 'antd-mobile';
 
-class TabBarExample extends Component {
+class MainMenu extends Component {
     constructor(props) {
         super(props);
-        this.clickHiddenHandle=this.clickHiddenHandle.bind(this);
         this.state = {
-            selectedTab: 'blueTab',
-            hidden: false
+            selectedTab: 'blueTab'
         };
-    }
-    clickHiddenHandle(ev){
-        ev.preventDefault();
-        this.setState({
-            hidden: !this.state.hidden,
-        });
-    }
-
-    renderContent(pageText) {
-        let page = null;
-        switch(pageText){
-            case 'Weibo':
-                page = <Weibo />;
-            case 'TodoList':
-                page = <TodoList />;
-        }
-        return (
-            <div style={{ textAlign: 'center', color: '#fff' }}>
-                <div style={{ paddingTop: 10 }}>你已点击“{pageText}” tab， 当前展示“{pageText}”信息</div>
-                <a onClick={this.clickHiddenHandle}>点击切换 tab-bar 显示/隐藏</a>
-                <page />
-            </div>
-        );
     }
 
     render() {
         return (
-            <TabBar
-                unselectedTintColor="#949494"
-                tintColor="#33A3F4"
-                barTintColor="#eee"
-                hidden={this.state.hidden}
-            >
-                <TabBar.Item
-                    title="微博"
-                    key="微博"
-                    icon={<div style={{
-                        width: '0.44rem',
-                        height: '0.44rem',
-                        background: 'url(https://zos.alipayobjects.com/rmsportal/sifuoDUQdAFKAVcFGROC.svg) center center /  0.42rem 0.42rem no-repeat' }}
-                    />
-                    }
-                    selectedIcon={<div style={{
-                        width: '0.44rem',
-                        height: '0.44rem',
-                        background: 'url(https://zos.alipayobjects.com/rmsportal/iSrlOTqrKddqbOmlvUfq.svg) center center /  0.42rem 0.42rem no-repeat' }}
-                    />
-                    }
-                    selected={this.state.selectedTab === 'blueTab'}
-                    badge={1}
-                    onPress={() => {
-                        this.setState({
-                            selectedTab: 'blueTab',
-                        });
-                    }}
-                    data-seed="logId"
+            <TabBar unselectedTintColor="#949494" tintColor="#33A3F4" barTintColor="#eee">
+                <TabBar.Item title="微博" key="微博"
+                             icon={<Link to="/app"><i className="iconfont">&#xe69e;</i></Link>}
+                             selectedIcon={<i className="iconfont" style={{color:'#f64e45'}}>&#xe69e;</i>}
+                             selected={this.state.selectedTab === 'blueTab'}
+                             onPress={() => {
+                                 this.setState({
+                                     selectedTab: 'blueTab',
+                                 });
+                             }}
                 >
-                    {this.renderContent('Weibo')}
                 </TabBar.Item>
-                <TabBar.Item
-                    icon={<Icon type="koubei-o" size="md" />}
-                    selectedIcon={<Icon type="koubei" size="md" />}
-                    title="口碑"
-                    key="口碑"
-                    badge={'new'}
-                    selected={this.state.selectedTab === 'redTab'}
-                    onPress={() => {
-                        this.setState({
-                            selectedTab: 'redTab',
-                        });
-                    }}
-                    data-seed="logId1"
+                <TabBar.Item title="TodoList" key="TodoList"
+                             icon={<Link to='/app/todo'><i className="iconfont">&#xe6fc;</i></Link>}
+                             selectedIcon={<i className="iconfont" style={{color:'#f64e45'}}>&#xe6fc;</i>}
+                             selected={this.state.selectedTab === 'greenTab'}
+                             onPress={() => {
+                                 this.setState({
+                                     selectedTab: 'greenTab',
+                                 });
+                             }}
                 >
-                    {this.renderContent('口碑')}
                 </TabBar.Item>
-                <TabBar.Item
-                    icon={
-                        <div style={{
-                            width: '0.44rem',
-                            height: '0.44rem',
-                            background: 'url(https://zos.alipayobjects.com/rmsportal/psUFoAMjkCcjqtUCNPxB.svg) center center /  0.42rem 0.42rem no-repeat' }}
-                        />
-                    }
-                    selectedIcon={
-                        <div style={{
-                            width: '0.44rem',
-                            height: '0.44rem',
-                            background: 'url(https://zos.alipayobjects.com/rmsportal/IIRLrXXrFAhXVdhMWgUI.svg) center center /  0.42rem 0.42rem no-repeat' }}
-                        />
-                    }
-                    title="TodoList"
-                    key="TodoList"
-                    dot
-                    selected={this.state.selectedTab === 'greenTab'}
-                    onPress={() => {
-                        this.setState({
-                            selectedTab: 'greenTab',
-                        });
-                    }}
+                <TabBar.Item title="我的" key="我的"
+                             icon={<Link to='/app/my'><i className="iconfont">&#xe70b;</i></Link>}
+                             selectedIcon={<i className="iconfont" style={{color:'#f64e45'}}>&#xe70b;</i>}
+                             selected={this.state.selectedTab === 'redTab'}
+                             onPress={() => {
+                                 this.setState({
+                                     selectedTab: 'redTab',
+                                 });
+                             }}
                 >
-                    {this.renderContent('TodoList')}
-                </TabBar.Item>
-                <TabBar.Item
-                    icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg' }}
-                    selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg' }}
-                    title="我的"
-                    key="我的"
-                    selected={this.state.selectedTab === 'yellowTab'}
-                    onPress={() => {
-                        this.setState({
-                            selectedTab: 'yellowTab',
-                        });
-                    }}
-                >
-                    {this.renderContent('我的')}
                 </TabBar.Item>
             </TabBar>
         );
     }
 }
 
-export default TabBarExample;
+export default MainMenu;
