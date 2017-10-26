@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory';
 import '../css/Login.less';
 import '../css/animate-custom.css';
-import '../css/style2.css';
 
 const customHistory = createBrowserHistory();
 
@@ -41,8 +40,8 @@ class Login extends Component{
     render(){
         return(
             <div>
-                <a className="hiddenanchor" id="toregister"></a>
-                <a className="hiddenanchor" id="tologin"></a>
+                <a className="hiddenanchor" id="toregister">{}</a>
+                <a className="hiddenanchor" id="tologin">{}</a>
                 <div className="loginForm" id="wrapper">
                     <div id="login" className="animate">
                         <div className="login_wrap">

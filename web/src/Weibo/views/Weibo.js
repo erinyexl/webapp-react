@@ -1,8 +1,43 @@
 import React, { Component } from 'react';
 import { Tabs, WhiteSpace, Badge } from 'antd-mobile';
-import '../css/Weibo.less';
+import '../../css/Weibo.less';
+
+import { connect } from 'react-redux';
+import {fetchPosts} from "../actions";
 
 const TabPane = Tabs.TabPane;
+
+class WeiboUI extends Component{
+    componentDidMount(){
+        // const { fetchTodoListHandle } = this.props;
+        // fetchTodoListHandle();
+    }
+    render(){
+        return(
+            <div id="weibo">
+                <EditModule />
+                <TabExample />
+            </div>
+        )
+    }
+}
+
+let mapStateToProps=(state)=>{
+    return{
+        todoList:state.listReducer
+    }
+};
+
+let mapDispatchToProps=(dispatch)=>{
+    return{
+        fetchTodoListHandle:()=>dispatch(fetchPosts('/users/todolist'))
+    }
+};
+
+const Weibo=connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(WeiboUI);
 
 function callback(key) {
     console.log('onChange', key);
@@ -44,17 +79,6 @@ class EditModule extends Component{
                     <a href="javascript:void(0);" className="edit_send_btn">发 表</a>
                 </div>
             </section>
-        )
-    }
-}
-
-class Weibo extends Component{
-    render(){
-        return(
-            <div id="weibo">
-                <EditModule />
-                <TabExample />
-            </div>
         )
     }
 }

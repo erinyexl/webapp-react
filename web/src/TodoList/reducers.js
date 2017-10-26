@@ -1,15 +1,13 @@
 import { combineReducers } from 'redux';
 
-let dataObj={
-    todoTypeChecked:[
-        "#cf98f3",
-        "#F97B91",
-        "#84C3F8",
-        "#ABE08E",
-        "#FCDB7A",
-        "#BCC4C6"
-    ]
-};
+let todoType=[
+    "#cf98f3",
+    "#F97B91",
+    "#84C3F8",
+    "#ABE08E",
+    "#FCDB7A",
+    "#BCC4C6"
+];
 
 // Reducer
 let taskReducer = (state=0, action) => {
@@ -39,7 +37,7 @@ let listReducer = (state=[], action) => {
     }
 };
 
-let typeReducer = (state=dataObj.todoTypeChecked, action) => {
+let typeReducer = (state=todoType, action) => {
     return state;
 };
 

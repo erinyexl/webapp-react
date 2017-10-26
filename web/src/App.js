@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './TodoList/store';
+import storeWei from './Weibo/store';
 
 import MainMenu from './script/MainMenu';
-import Weibo from './script/Weibo';
+import Weibo from './Weibo/views/Weibo';
 import TodoList from './TodoList/views/TodoList';
 import MyCenter from "./script/MyCenter";
 
@@ -12,7 +13,7 @@ const routes = [
     {
         path: '/app',
         exact: true,
-        main: () => <Weibo />
+        main: () => <Provider store={storeWei}><Weibo /></Provider>
     },
     {
         path: '/app/todo',
